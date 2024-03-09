@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'rm -rf assignment-docker' 
-                sh 'git clone "https://github.com/88janu/assignment-docker.git"'
+                sh 'git clone ""'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 dir('assignment-docker/terraform') {
                     script {
-                        sh 'terraform init -backend-config="bucket=my-bucket" -backend-config="key=my-key" -backend-config="region=my-region"'
+                        sh 'terraform init'
                     }
                 }
             }
