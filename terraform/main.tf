@@ -60,7 +60,7 @@ resource "aws_security_group" "all_traffic" {
 
 resource "aws_instance" "test_first" {
   ami           = "ami-03bb6d83c60fc5f7c"
-  instance_type = "t2.medium"
+  instance_type = "t2.micro"
   key_name      = "docker"
   vpc_security_group_ids = [aws_security_group.all_traffic.id]
   subnet_id     = aws_subnet.example_subnet.id
@@ -71,7 +71,7 @@ resource "aws_instance" "test_first" {
               # Additional commands if needed
               EOF
   tags = {
-    Name     = "HelloWorld"
+    Name     = "teraform_docker"
     Stage    = "testing"
     Location = "India"
   }
